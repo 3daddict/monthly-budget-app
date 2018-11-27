@@ -9,13 +9,23 @@ const budgetController = (function() {
 // UI Controller
 const UIController = (function() {
 
+	const DOMstrings = {
+		inputType: '.add__type',
+		inputDescription: '.add__description',
+		inputValue: '.add__value',
+		inputButton: '.add__btn'
+	}
+
     return {
 		getInput: function(){
 			return {
-				type: document.querySelector('.add__type').value, //will be either inc (+) or exp (-)
-				desctiption: document.querySelector('.add__description').value,
-				value: document.querySelector('.add__value').value
+				type: document.querySelector(DOMstrings.inputType).value, //will be either inc (+) or exp (-)
+				desctiption: document.querySelector(DOMstrings.inputDescription).value,
+				value: document.querySelector(DOMstrings.inputValue).value
 			}
+		},
+		getDOMstrings: function() {
+			return DOMstrings;
 		}
 	};
 
@@ -23,6 +33,8 @@ const UIController = (function() {
 
 // Main App Controller
 const controller = (function(budgetCtrl, UICtrl) {
+
+	const DOM = UICtrl.getDOMstrings();
 
 	const ctrlAddItem = function(){
 		//1. Get the field input data
@@ -39,7 +51,7 @@ const controller = (function(budgetCtrl, UICtrl) {
 	}
 
 	//input event listener
-	document.querySelector('.add__btn').addEventListener('click', ctrlAddItem);
+	document.querySelector(DOM.inputButton).addEventListener('click', ctrlAddItem);
 
 	document.addEventListener('keypress', function(event) {
 		if(event.keycode === 13 || event.which === 13) {
