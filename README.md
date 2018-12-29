@@ -1,4 +1,4 @@
-# NodeJS Back-End with Express and JWT Authorization
+# Monthly Budget Tracking App
 ## Overview
 This project was created to learn and practice JavaScipts module pattern. This app is for tracking income and expenses for the month.
 Link to [live version](https://3daddict.github.io/monthly-budget-app/).
